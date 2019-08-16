@@ -10,8 +10,8 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
   const GlobalStyle = createGlobalStyle`
-  .App {
-    background-image: url(https://starwarsblog.starwars.com/wp-content/uploads/sites/8/2018/01/sw-iphone-wallpaper-bb8-1.jpg) !important;
+  body {
+    background-image: url(https://i.imgur.com/UvVQaf6.jpg) !important;
   }
 
 `
