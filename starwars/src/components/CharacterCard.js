@@ -6,8 +6,9 @@ const CharacterCard = props => {
 
         <div>
             <div>{props.name}</div>
+            <div>{props.height} cm.</div>
             <div>{props.birthyear}</div>
-            <div>{props.home}</div>
+            
         </div>
 
     );

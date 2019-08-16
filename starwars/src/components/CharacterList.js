@@ -4,7 +4,6 @@ import CharacterCard from './CharacterCard';
 
 const CharacterList= function() {
     const [characters, setCharacters] = useState([]);//state set
-
     //Effect Hook
     useEffect(() => {
         axios.get(`https://swapi.co/api/people/`, {
@@ -13,11 +12,13 @@ const CharacterList= function() {
         .then((response)=> {
             const characters = response.data.results;
             setCharacters(characters);//update state to SWAPI people
-            console.log(characters)
+            return characters;
         })
         .catch(err => {
             console.log(err);
         })
+
+        
     }, [])//useEffect()
 
     //return callback function
@@ -27,9 +28,9 @@ const CharacterList= function() {
         {characters.map( character => {
             return(
             <CharacterCard
-            name={character.name}
+            name={character.name}            
             birthyear={character.birth_year}
-            home={character.homeworld}
+            height={character.height}
             />
             )
         })}
