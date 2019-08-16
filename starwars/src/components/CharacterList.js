@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
+import { Container, Grid } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
+
 
 const CharacterList= function() {
     const [characters, setCharacters] = useState([]);//state set
@@ -24,7 +27,9 @@ const CharacterList= function() {
     //return callback function
 
     return (
-        <div>
+        <Container text>
+         <Grid relaxed columns={3} divided="vertically">
+         <Grid.Row padded="vertically" columns={3}>
         {characters.map( character => {
             return(
             <CharacterCard
@@ -34,7 +39,9 @@ const CharacterList= function() {
             />
             )
         })}
-        </div>
+        </Grid.Row>
+        </Grid>
+        </Container>
     )
 };//CharacterList
 
