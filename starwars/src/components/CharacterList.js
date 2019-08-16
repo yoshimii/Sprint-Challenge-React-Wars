@@ -3,7 +3,7 @@ import axios from 'axios';
 import CharacterCard from './CharacterCard';
 
 const CharacterList= function() {
-    const [character, setCharacters] = useState([]);//state set
+    const [characters, setCharacters] = useState([]);//state set
 
     //Effect Hook
     useEffect(() => {
@@ -11,9 +11,9 @@ const CharacterList= function() {
             params: {}//optional parameters
         })
         .then((response)=> {
-            const character = response.data.results;
-            setCharacters(character);//update state to SWAPI people
-            console.log(character)
+            const characters = response.data.results;
+            setCharacters(characters);//update state to SWAPI people
+            console.log(characters)
         })
         .catch(err => {
             console.log(err);
@@ -23,9 +23,17 @@ const CharacterList= function() {
     //return callback function
 
     return (
-        <CharacterCard
-        name={character.name}
-        />
+        <div>
+        {characters.map( character => {
+            return(
+            <CharacterCard
+            name={character.name}
+            birthyear={character.birth_year}
+            home={character.homeworld}
+            />
+            )
+        })}
+        </div>
     )
 };//CharacterList
 
