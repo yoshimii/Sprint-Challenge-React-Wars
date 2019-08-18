@@ -1,17 +1,34 @@
-import React from 'react';
-import { Card, Grid } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Card, Grid, CardContent } from 'semantic-ui-react';
+import axios from 'axios';
 
 const CharacterCard = props => {
-    
-    return (
+ const [planet, setPlanet] = useState()
 
+
+    axios.get(`${props.home}`)
+    .then((response, planet)=> {
+        console.log(response.data.name)
+        setPlanet(response.data.name)
+        
+    })
+
+    if(!planet){
+        return null;
+    }
+
+    return (
+        
     <Grid.Column padded="horizontally" key={props.id}>
         <Card>
             <Card.Content>
                 <Card.Header>Name: {props.name}</Card.Header>
+
                 <Card.Description>
-                <Card.Meta>{props.birthyear}</Card.Meta>
-                Height: {props.height}cm.
+                {/* {props.home} */}
+                <Card.Meta>Birth year: {props.birthyear}</Card.Meta>
+                Height: {props.height}cm.<br/>
+                Home: {planet}
                 </Card.Description>
             </Card.Content>
         </Card>
@@ -20,4 +37,16 @@ const CharacterCard = props => {
     );
 };
 
-export default CharacterCard;
+
+
+const PlanetCard = props => {
+    return(
+        
+    <Card>
+        <CardContent>
+            Home: {props.home}
+        </CardContent>
+    </Card>
+    )
+}
+export {PlanetCard, CharacterCard}

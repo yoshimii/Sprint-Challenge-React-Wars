@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import CharacterList from './components/CharacterList';
 import { createGlobalStyle } from 'styled-components'
+import { PlanetCard } from './components/CharacterCard';
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -19,7 +20,8 @@ const App = () => {
     <div className="App">
       <GlobalStyle/>
       <h1 className="Header">React Wars</h1>
-      <CharacterList/>
+      <PlanetCard/>
+         <CharacterList/>
     </div>
   );
 }
