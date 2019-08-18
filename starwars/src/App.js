@@ -20,8 +20,7 @@ const App = () => {
     <div className="App">
       <GlobalStyle/>
       <h1 className="Header">React Wars</h1>
-      <PlanetCard/>
-         <CharacterList/>
+      <CharacterList/>
     </div>
   );
 }

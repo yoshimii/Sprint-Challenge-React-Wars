@@ -23,9 +23,7 @@ const CharacterCard = props => {
         <Card>
             <Card.Content>
                 <Card.Header>Name: {props.name}</Card.Header>
-
                 <Card.Description>
-                {/* {props.home} */}
                 <Card.Meta>Birth year: {props.birthyear}</Card.Meta>
                 Height: {props.height}cm.<br/>
                 Home: {planet}
@@ -37,16 +35,4 @@ const CharacterCard = props => {
     );
 };
 
-
-
-const PlanetCard = props => {
-    return(
-        
-    <Card>
-        <CardContent>
-            Home: {props.home}
-        </CardContent>
-    </Card>
-    )
-}
-export {PlanetCard, CharacterCard}
+export default CharacterCard;
