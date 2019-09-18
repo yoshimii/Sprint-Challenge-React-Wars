@@ -16,7 +16,7 @@ const CharacterList= function() {
         .then((response) => {
             const chars = response.data.results;
             setCharacters(chars)//update state to SWAPI people
-            return chars;
+            // return chars;
         })
 
         .catch(err => {
